@@ -71,4 +71,4 @@ client.on('message', async (message) => {
     }
 
 })
-client.login("NzY0OTc0MDUzNjM0NjA1MDg3.X4ODmg.8fLZxXF8NrglllQZhOoo8yQXiF0")
+client.login("Super secret token here")
