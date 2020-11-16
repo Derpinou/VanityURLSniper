@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
+const moment = require("moment-timezone");
 
 /*
     D0wzy - 2020
@@ -14,6 +15,8 @@ class Main {
     }
 
     async setVanityURL(url, guild) {
+        const time = moment.tz(Date.now(), "Europe/Paris").format("HH:mm:ss");
+        console.log(`[${time}] [INFO] Sniping discord.gg/${url}`)
         return await fetch(`https://discord.com/api/v8/guilds/${guild.id}/vanity-url`, {
             "credentials": "include",
             "headers": {
@@ -30,7 +33,20 @@ class Main {
         });
     }
     checkVanityURL(url) {
-
+        return await fetch(`https://discord.com/api/v8/guilds/${guild.id}/vanity-url`, {
+            "credentials": "include",
+            "headers": {
+                "accept": "*/*",
+                "authorization": client.token,
+                "content-type": "application/json",
+            },
+            "referrerPolicy": "no-referrer-when-downgrade",
+            "body": JSON.stringify({
+                "code": url
+            }),
+            "method": "GET",
+            "mode": "cors"
+        });
     }
 
     startSnipe(url, guild) {
