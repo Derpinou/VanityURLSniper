@@ -41,9 +41,6 @@ class Main {
                 "content-type": "application/json",
             },
             "referrerPolicy": "no-referrer-when-downgrade",
-            "body": JSON.stringify({
-                "code": url
-            }),
             "method": "GET",
             "mode": "cors"
         });
