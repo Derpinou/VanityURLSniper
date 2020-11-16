@@ -55,7 +55,7 @@ client.on('message', async (message) => {
 
     if (command === "start-snipe") {
         let url = args[0]
-        new Main().startSnipe(url)
+        handler.startSnipe(url)
 
         if (!message.guild.features.includes('VANITY_URL')) {
             return message.reply("Vous ne possedez pas l'options VANITY_URL")
