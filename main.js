@@ -13,8 +13,8 @@ class Main {
         this.sniperInterval;
     }
 
-    setVanityURL(url, guild) {
-        fetch(`https://discord.com/api/v8/guilds/${guild.id}/vanity-url`, {
+    async setVanityURL(url, guild) {
+        return await fetch(`https://discord.com/api/v8/guilds/${guild.id}/vanity-url`, {
             "credentials": "include",
             "headers": {
                 "accept": "*/*",
@@ -44,7 +44,6 @@ class Main {
     }
 }
 const prefix = "!"
-
 
 let handler = new Main()
 
